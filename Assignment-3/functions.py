@@ -71,7 +71,7 @@ def show_subjects_and_books():
             else:
                 print("Invalid input: ")
 
-# takes 'autor' or 'title' as an argument, and displays 3 books at a time 
+# displays 3 books at a time 
 def search(val):
     input_ = input(f"Enter {val} or part of the {val}: ")
     books = fetch_books(input_, val)

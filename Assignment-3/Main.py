@@ -1,6 +1,6 @@
 import functions as fun
 from sql import show_user, user_details
-from my_tables import memberss
+from my_tables import members
 
 # Constants
 MAIN_MENU = """

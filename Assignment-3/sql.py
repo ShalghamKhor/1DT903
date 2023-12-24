@@ -2,12 +2,12 @@ import mysql.connector as mysql
 from my_tables import members, orders, cart
 from datetime import datetime, timedelta
 
-# if you dont have default setting on your database, change the following according to your settings
-db = mysql.connect(user='root', password='root', port='8889', host='127.0.0.1', database='book_store')
+# 
+db = mysql.connect(user='root', password='root', port='0000', host='000.0.0.0', database='book_store')
 mycursor = db.cursor(prepared=True)
 
 
-# takes the members module from my_tabale and creates a new user in database
+# creates a new user in database
 def create_new_user(members):
 
     query = "INSERT INTO members (fname, lname, address, city, state, zip, phone, email, password )\
@@ -73,7 +73,7 @@ def fetch_subjects():
 
     return subject_list
 
-# takes subject as an argument, and fetches the all book details under the subject
+# fetches all book details under the subject
 def fetch_book_by_subject(subject):
     query = "SELECT * FROM books WHERE subject = ?"
     mycursor.execute(query, (subject,))
@@ -85,7 +85,7 @@ def fetch_book_by_subject(subject):
         books.append(book)
     return books
 
-# takes all information in cart module in my_table and inserts it in cart table
+# takes all information and inserts it in cart table
 # Updates the quantity of wanted books if same isbn is eneterd
 def save_to_cart(cart):
     query = "INSERT INTO cart (userid, isbn, qty) VALUES (?, ?, ?)\
